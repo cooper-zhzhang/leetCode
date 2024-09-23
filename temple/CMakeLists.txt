@@ -16,7 +16,3 @@ add_compile_options(-std=c++11 -Wall -Werror -g)
 
 add_executable(a.out main.cpp)
 
-# cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1
-
-#set(BUTIL_SOURCES
-  #     ${PROJECT_SOURCE_DIR}/src/butil/third_party/dmg_fp/g_fmt.cc

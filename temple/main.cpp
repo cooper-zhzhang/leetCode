@@ -7,7 +7,4 @@ int main() {
 }
 
 
-//8eFE4T2ifceSxca
-
-
 
