@@ -2,17 +2,6 @@
 
 using namespace std;
 
+int LcsLength() {}
 
-int LcsLength() {
-
-    
-
-
-
-
-}
-
-int main() {
-
-    return 0;
-}
+int main() { return 0; }
