@@ -2,18 +2,11 @@
 #include <ctime>
 #include <iostream>
 #include <map>
-#include <random>
-#include <set>
 #include <vector>
 
 class RandomizedSet {
 public:
-  std::default_random_engine e;
-  RandomizedSet() {
-    e.seed(time(0));
-
-    srand(0);
-  }
+  RandomizedSet() { srand(0); }
 
   bool insert(int val) {
 
@@ -52,8 +45,6 @@ public:
   }
 
 private:
-  std::set<int> m_data;
-
   std::map<int, int> m_posMap;
   std::vector<int> m_dataVec;
 };
