@@ -156,7 +156,6 @@ class Solution1 {
             return;
         }
 
-
         int index = rand() % (right - left + 1) + left;
         int pivot = arr[index];
 
@@ -170,11 +169,10 @@ class Solution1 {
         while(i < k) {
             if(arr[i] < pivot) {
                 swap(arr[i], arr[j]);
-                i++;j++;
+                i++;
+                j++;
 
-            }
-
-            else if(arr[i] > pivot) {
+            } else if(arr[i] > pivot) {
                 --k;
                 swap(arr[i], arr[k]);
             } else
