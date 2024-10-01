@@ -13,4 +13,4 @@ CMakeUserPresets.json
 a.out
 bld/
 .cache/
-CMakeLists
+CMakeLists.txt
