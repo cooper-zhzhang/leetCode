@@ -155,7 +155,10 @@ class Solution1 {
         if(right - left <= 0) {
             return;
         }
-        int pivot = arr[right];
+
+
+        int index = rand() % (right - left + 1) + left;
+        int pivot = arr[index];
 
         // i：当前操作的元素下标
         // arr[0, j)：存储小于 pivot 的元素
