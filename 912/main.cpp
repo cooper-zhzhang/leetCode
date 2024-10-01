@@ -1,8 +1,6 @@
-//#include <>
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
-#include <stdexcept>
 #include <vector>
 
 using namespace std;
@@ -14,18 +12,12 @@ class Solution {
 
         return nums;
     }
-
-    void Swap(int &v1, int &v2) {
-        int tmp = v1;
-        v1 = v2;
-        v2 = tmp;
-    }
-
+    
     int Partition(vector<int> &arr, int left, int right) {
 
         if(arr.size() > 100) {
             int index = rand() % (right - left + 1) + left;
-            Swap(arr[index], arr[right]);
+            swap(arr[index], arr[right]);
         }
 
         int temp = arr[right];
@@ -35,10 +27,10 @@ class Solution {
             if(arr[j] < temp) {
                 i++;
                 // i 标记大的数字
-                Swap(arr[i], arr[j]);
+                swap(arr[i], arr[j]);
             }
         }
-        Swap(arr[right], arr[i + 1]); //!!!note: can't use temp:local variable
+        swap(arr[right], arr[i + 1]); //!!!note: can't use temp:local variable
         return i + 1;
     }
 
