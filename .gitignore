@@ -14,3 +14,4 @@ a.out
 bld/
 .cache/
 CMakeLists.txt
+.vscode
