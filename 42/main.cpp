@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <climits>
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -18,11 +18,11 @@ class Solution {
         vector<int> r(n, 0);
 
         for(int i = 1; i < n; ++i) {
-            l[i] = max(height[i-1], l[i - 1]);
+            l[i] = max(height[i - 1], l[i - 1]);
         }
 
         for(int i = n - 2; i >= 0; --i) {
-            r[i] = max(height[i+1], r[i + 1]);
+            r[i] = max(height[i + 1], r[i + 1]);
         }
 
         int count = 0;
@@ -38,12 +38,11 @@ class Solution {
     }
 };
 
-int main() { 
-    
-    vector<int>height {0,1,0,2,1,0,1,3,2,1,2,1};
-    
-    std::cout << 
-    Solution().trap(height)
-    << std::endl;
-    
-    return 0; }
+int main() {
+
+    vector<int> height{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+
+    std::cout << Solution().trap(height) << std::endl;
+
+    return 0;
+}

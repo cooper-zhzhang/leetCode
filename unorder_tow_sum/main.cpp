@@ -4,6 +4,7 @@
 
 std::vector<int> find(std::vector<int> nums, int sum) {
     std::map<int, int> numsMap;
+    //std::unordered_map<typename Key, typename Tp>
 
     std::vector<int> resultVec;
 

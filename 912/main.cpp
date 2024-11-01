@@ -109,7 +109,7 @@ class Solution1 {
         return i + 1;
     }
 
-    void quicksort111(int *nums, int left, int right) {
+    void quicksortThreePartition(int *nums, int left, int right) {
         if(left >= right)
             return;
 
@@ -118,7 +118,9 @@ class Solution1 {
         int pivot = nums[j];
         int less = left, great = right, i = left;
         // 需要保证
-        // 1、[left,less-1] < pivot 2、[less,i] == pivot 3、[i,great] 未处理区域
+        // 1、[left,less-1] < pivot 
+        // 2、[less,i] == pivot
+        // 3、[i,great] 未处理区域
         // 4、[great+1,right] > pivot
         while(i <= great) {
             if(nums[i] < pivot) {
@@ -132,8 +134,8 @@ class Solution1 {
                 i++;
             }
         }
-        quicksort111(nums, left, less - 1);
-        quicksort111(nums, great + 1, right);
+        quicksortThreePartition(nums, left, less - 1);
+        quicksortThreePartition(nums, great + 1, right);
     }
 
     void swap_(int nums[], int i, int j) {
@@ -148,8 +150,7 @@ class Solution1 {
             return;
         }
 
-        int index = rand() % (right - left + 1) + left;
-        int pivot = arr[index];
+        int pivot = arr[rand() % (right - left + 1) + left];
 
         // i：当前操作的元素下标
         // arr[0, j)：存储小于 pivot 的元素
@@ -158,6 +159,7 @@ class Solution1 {
         // 完成一趟三路快排，将序列分为：
         // 小于 pivot 的元素 arr[j]==pivot | 等于 pivot 的元素 | 大于 pivot
         // 的元素
+        // [i, k) 需要处理的元素
         while(i < k) {
             if(arr[i] < pivot) {
                 swap(arr[i], arr[j]);
