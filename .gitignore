@@ -15,3 +15,4 @@ bld/
 .cache/
 CMakeLists.txt
 .vscode
+time
