@@ -1,10 +1,3 @@
+// 712 625 847
 
-
-int main() {
-
-    return 0;
-
-}
-
-
-
+int main() { return 0; }
