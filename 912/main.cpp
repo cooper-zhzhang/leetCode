@@ -1,6 +1,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
+#include <utility>
 #include <vector>
 
 using namespace std;
@@ -9,10 +10,9 @@ class Solution {
   public:
     vector<int> sortArray(vector<int> &nums) {
         QuickSort(nums, 0, nums.size() - 1);
-
         return nums;
     }
-    
+
     int Partition(vector<int> &arr, int left, int right) {
 
         if(arr.size() > 100) {
@@ -118,17 +118,17 @@ class Solution1 {
         int pivot = nums[j];
         int less = left, great = right, i = left;
         // 需要保证
-        // 1、[left,less-1] < pivot 
+        // 1、[left,less-1] < pivot
         // 2、[less,i] == pivot
         // 3、[i,great] 未处理区域
         // 4、[great+1,right] > pivot
         while(i <= great) {
             if(nums[i] < pivot) {
-                swap_(nums, i, less);
+                std::swap(nums[i], nums[less]);
                 less++;
                 i++;
             } else if(nums[i] > pivot) {
-                swap_(nums, i, great);
+                std::swap(nums[i], nums[great]);
                 great--;
             } else {
                 i++;

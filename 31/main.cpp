@@ -37,7 +37,6 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
 class Solution {
   public:
     void nextPermutation(vector<int> &nums) {
@@ -56,14 +55,11 @@ class Solution {
                 }
                 j++;
             }
-
             if(findValue != 1000) {
                 changed = true;
                 int temp = nums[i];
                 nums[i] = nums[findIndex];
-                nums[findIndex] = temp;
-
-                // 重组后面的
+                nums[findIndex] = temp; // 重组后面的
                 sort(nums.begin() + i + 1, nums.end());
                 break;
             }
@@ -73,7 +69,6 @@ class Solution {
         }
     }
 };
-
 int main() {
     vector<int> vec{1, 1, 5};
     Solution().nextPermutation(vec);
