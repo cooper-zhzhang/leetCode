@@ -36,10 +36,11 @@ class Solution {
   public:
     void squarefulPerms(vector<int> &nums, int index, vector<int> &ret,
                         int &count) {
-        int INVALID = -1;
+        const int INVALID = -1;
         if(index == nums.size()) {
             count++;
         }
+
         for(int i = 0; i < nums.size(); ++i) {
             if(nums[i] == INVALID) {
                 continue;
@@ -49,7 +50,6 @@ class Solution {
             }
 
             bool isValid = true;
-
             if(index > 0) {
                 int sum = nums[i] + ret[index - 1];
                 int temp = sqrt(sum);
