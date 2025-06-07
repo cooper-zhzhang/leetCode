@@ -36,7 +36,6 @@ class Solution {
 
     TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *target1,
                                    TreeNode *target2) {
-
         if(root == nullptr) {
             return nullptr;
         }

@@ -145,8 +145,10 @@ class Solution1 {
     }
 
     void PartitionThree(vector<int> &arr, int left, int right) {
+        // 最佳
+        // best
 
-        if(right - left <= 0) {
+        if(left >= right) {
             return;
         }
 
@@ -165,7 +167,6 @@ class Solution1 {
                 swap(arr[i], arr[j]);
                 i++;
                 j++;
-
             } else if(arr[i] > pivot) {
                 --k;
                 swap(arr[i], arr[k]);
