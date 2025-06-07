@@ -19,3 +19,5 @@ time
 .vscode/settings.json
 .gitignore
 .lcpr_data/bricks.json
+.lcpr_data/group.json
+.vscode/settings.json
