@@ -16,3 +16,6 @@ bld/
 CMakeLists.txt
 .vscode
 time
+.vscode/settings.json
+.gitignore
+.lcpr_data/bricks.json
