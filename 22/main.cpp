@@ -1,3 +1,6 @@
+/*
+https://leetcode.cn/problems/generate-parentheses
+*/
 #include <iostream>
 #include <string>
 #include <vector>
