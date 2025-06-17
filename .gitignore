@@ -12,6 +12,7 @@ _deps
 CMakeUserPresets.json
 a.out
 bld/
+TO_DO/
 .cache/
 CMakeLists.txt
 .vscode

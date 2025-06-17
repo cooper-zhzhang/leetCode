@@ -6,7 +6,6 @@
 #include <list>
 #include <vector>
 struct Node {
-#include <vector>
     Node(int value) {
         this->value = value;
         this->l = nullptr;
@@ -85,4 +84,32 @@ Node *createTree(const std::vector<int> &vec) {
 
     return root;
 }
+// 主模板
+template <size_t N> struct Fibonacci {
+    static constexpr unsigned long long value =
+        Fibonacci<N - 1>::value + Fibonacci<N - 2>::value;
+};
+
+// 特化模板 - 基本情况
+template <> struct Fibonacci<0> {
+    static constexpr unsigned long long value = 0;
+};
+
+template <> struct Fibonacci<1> {
+    static constexpr unsigned long long value = 1;
+};
+
+// 生成斐波那契查询表的辅助模板
+template <size_t... Is>
+constexpr auto make_fibonacci_table(std::index_sequence<Is...>) {
+    return std::array<unsigned long long, sizeof...(Is)>{
+        Fibonacci<Is>::value...};
+}
+
+// 生成斐波那契查询表
+template <size_t N> constexpr auto generate_fibonacci_table() {
+    return make_fibonacci_table(std::make_index_sequence<N>{});
+}
+
+constexpr auto fib_table = generate_fibonacci_table<50>();
 #endif //
