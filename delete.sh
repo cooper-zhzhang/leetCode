@@ -18,6 +18,7 @@ done
 
 # 删除 run.sh 文件，但排除 template 路径下的 run.sh
 echo "正在删除 run.sh 文件（排除 template 路径）..."
-find . -type f -name "run.sh" ! -path "*/template/*" -exec rm -f {} \;
+find . -type f -name "run.sh" ! -path "*/template/*" ! -path "*/TO_DO/*" -exec rm -f {} \;
 
 echo "清理完成。"
+

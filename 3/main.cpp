@@ -1,4 +1,5 @@
-/*3. 无重复字符的最长子串 - 给定一个字符串 s ，请你找出其中不含有重复字符的 最长 子串 的长度。
+/*3. 无重复字符的最长子串 - 给定一个字符串 s ，请你找出其中不含有重复字符的 最长
+子串 的长度。
 
  
 
@@ -6,7 +7,7 @@
 
 
 输入: s = "abcabcbb"
-输出: 3 
+输出: 3
 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
 
 
@@ -54,7 +55,6 @@ int lengthOfLongestSubstring(string str) {
         auto it = subStrIndexMap.find(c);
         if(it == subStrIndexMap.end() || it->second < subBeginIndex) {
             len++;
-            // i - subBeginIndex+1;
             maxLen = std::max(maxLen, len);
         } else {
             len = i - it->second;
