@@ -5,6 +5,12 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <algorithm>
+#include <cmath>
+#include <functional>
+#include <set>
+#include <vector>
+
 struct Node {
     Node(int value) {
         this->value = value;
@@ -112,4 +118,181 @@ template <size_t N> constexpr auto generate_fibonacci_table() {
 }
 
 constexpr auto fib_table = generate_fibonacci_table<50>();
+
+
+
+
+
+int main_reverse() {
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::reverse(vec.begin(), vec.end());
+
+    for(int i : vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+int main_sort() {
+
+    struct Person {
+        int no;
+        int age;
+        bool operator<(const Person &p) { return age < p.age; }
+
+        bool operator>(const Person& other) const {
+            return age > other.age; // 按年龄降序排序
+        }
+    };
+
+
+    std::vector<Person> people = {{1, 30}, {2, 25}, {3, 35}, {4, 20}};
+
+    std::sort(people.begin(), people.end(), [](const Person &l, const Person &r){
+        return l.age < r.age;
+    });
+
+    std::sort(people.begin(), people.end(), std::greater<Person>());
+
+    for(Person &i : people) {
+        std::cout << i.no << " " << i.age << std::endl;
+    }
+    std::cout << std::endl;
+
+    std::vector<int> vec = {5, 2, 9, 1, 5, 6};
+    std::sort(vec.begin(), vec.end());
+
+    std::sort(vec.begin(), vec.end(), std::greater<int>());
+
+    for(int i : vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+int reverse_copy_main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::vector<int> reversed_vec(vec.size());
+
+    std::reverse_copy(vec.begin(), vec.end(), reversed_vec.begin());
+
+    for(int i : reversed_vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    std::reverse_copy(vec.begin(), vec.end(), reversed_vec.rbegin());
+
+    for(int i : reversed_vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+int unique_main() {
+    std::vector<int> vec = {1, 2, 2, 3, 3, 3, 4, 5, 5};
+    auto last = std::unique(vec.begin(), vec.end());
+    vec.erase(last, vec.end());
+
+    for(int i : vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+int remove_if_main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5, 6};
+    auto last = std::remove_if(vec.begin(), vec.end(),
+                               [](int x) { return x % 2 == 0; });
+    vec.erase(last, vec.end());
+
+    for(int i : vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+int copy_main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::vector<int> copied_vec(vec.size());
+    std::set<int> mySet;
+
+    std::copy(vec.begin(), vec.end(), std::inserter(mySet, mySet.begin()));
+    std::copy(vec.begin(), vec.end(), copied_vec.begin());
+
+    for(int i : copied_vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    for(int i : mySet) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+int transform_main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::vector<int> transformed_vec(vec.size());
+
+    std::transform(vec.begin(), vec.end(), transformed_vec.begin(),
+                   [](int x) { return x * x; });
+
+    for(int i : transformed_vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+int find_if_main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    auto it = std::find_if(vec.begin(), vec.end(), [](int x) { return x > 3; });
+
+    if(it != vec.end()) {
+        std::cout << "Found: " << *it << std::endl;
+    } else {
+        std::cout << "Not found" << std::endl;
+    }
+
+    return 0;
+}
+
+int count_if_main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5, 6};
+    int count =
+        std::count_if(vec.begin(), vec.end(), [](int x) { return x % 2 == 0; });
+
+    std::cout << "Count of even numbers: " << count << std::endl;
+
+    return 0;
+}
+
+int for_each_main() {
+    std::vector<int> vec = {1, 2, 3, 4, 5};
+    std::for_each(vec.begin(), vec.end(), [](int &x) {
+        std::cout << x << " ";
+        x++;
+    });
+    std::cout << std::endl;
+
+    std::for_each(vec.begin(), vec.end(), [](int x) { std::cout << x << " "; });
+    std::cout << std::endl;
+
+    return 0;
+}
+
 #endif //
