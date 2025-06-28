@@ -22,6 +22,7 @@ for subdir in "$DEST_DIR"/*/; do
     if [ -d "$subdir" ]; then
         # 拷贝文件到子文件夹
         cp "$SOURCE_FILE" "$subdir"
+		chmod +x "$subdir"run.sh
         if [ $? -eq 0 ]; then
             echo "File $SOURCE_FILE has been successfully copied to $subdir."
         else
